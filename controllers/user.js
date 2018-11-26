@@ -44,7 +44,7 @@ module.exports = class UserController {
 
   static async register (ctx) {
     const name = ctx.checkBody('name').notEmpty().len(4, 20).value
-    const password = ctx.checkBody('password').notEmpty().len(6, 20).value
+    // const password = ctx.checkBody('password').notEmpty().len(6, 20).value
 
     if (ctx.errors) {
       ctx.body = ctx.util.refail(null, 10001, ctx.errors)
@@ -58,11 +58,11 @@ module.exports = class UserController {
       return
     }
 
-    const newPassword = util.bhash(password)
+    // const newPassword = util.bhash(password)
 
-    await createUser(name, newPassword)
+    // await createUser(name, newPassword)
 
-    ctx.body = ctx.util.resuccess()
+    ctx.body = ctx.util.refail()
   }
 
   /**
